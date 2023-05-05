@@ -18,7 +18,12 @@ async fn delay(seconds: u64) -> String {
     format!("Waited for {} seconds before execution", seconds)
 }
 
+#[get("/pet/<pet_type>/<breed>")]
+async fn get_pet(pet_type: String, breed: String) -> String {
+    format!("YUour pet is a {}, and its breed is {}", pet_type, breed)
+}
+
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index, hello, delay])
+    rocket::build().mount("/", routes![index, hello, delay, get_pet])
 }
