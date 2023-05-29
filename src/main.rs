@@ -1,4 +1,5 @@
-#[macro_use] extern crate rocket;
+#[macro_use]
+extern crate rocket;
 use rocket::tokio::time::{sleep, Duration};
 
 #[get("/")]
@@ -20,7 +21,7 @@ async fn delay(seconds: u64) -> String {
 
 #[get("/pet/<pet_type>/<breed>")]
 async fn get_pet(pet_type: String, breed: String) -> String {
-    format!("YUour pet is a {}, and its breed is {}", pet_type, breed)
+    format!("Your pet is a {}, and its breed is {}", pet_type, breed)
 }
 
 #[launch]
